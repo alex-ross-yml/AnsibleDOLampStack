@@ -3,7 +3,7 @@
 
   vars:
     asnible_python_interpreter: /usr/bin/python
-    do_token: 70f9240a55313b878e474a1a610a1b969e59987e900800f13c3e33a733da0469
+    do_token: # Insert DO API Token Here
 
   tasks:
   - name: Get digital ocean ssh key
@@ -21,7 +21,7 @@
       api_token={{ do_token }}
     register: my_ssh_key
 
-  - name: Creating droplets1
+  - name: Creating droplet 1
     digital_ocean_droplet:
       oauth_token: "{{ do_token }}"
       unique_name: yes
@@ -41,7 +41,7 @@
       name: "{{ created_droplets.data.ip_address }}"
       group: do_serv
 
-  - name: Creating droplets
+  - name: Creating droplet 2
     digital_ocean_droplet:
       oauth_token: "{{ do_token }}"
       unique_name: yes
